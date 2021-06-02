@@ -1,0 +1,4 @@
+module albm.mpi.mpich.include;
+
+#include <mpi.h>
+
