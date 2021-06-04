@@ -48,6 +48,23 @@ void mpi_init(string[] args, bool init_types = true) {
 
 /++
  +/
+int mpi_init_thread(string[] args, int required, bool init_types = true) {
+	static if(have_mpi) {
+		int argc = cast(int)args.length;
+		auto argv = args.to_argv;
+		int provided;
+		MPI_Init_thread(&argc, &argv, required, &provided);
+
+		if(init_types) init_data_types;
+
+		return provided;
+	} else {
+		return 0;
+	}
+}
+
+/++
+ +/
 void mpi_init_data_types() {
 	static if(have_mpi) {
 		init_data_types;
