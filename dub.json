@@ -4,7 +4,7 @@
 	"copyright": "Copyright © 2021, Robert F. Rau II (Pennsylvania State University)",
 	"authors": ["Robert F. Rau II"],
 	"targetType": "library",
-	"lflags": ["-lmpi"],
+	"lflags-posix": ["-L/usr/lib/x86_64-linux-gnu/openmpi/lib", "-lmpi"],
     "buildTypes": {
 		"unittest": {
 			"buildOptions": ["debugMode", "debugInfo", "unittests"],
